@@ -2,10 +2,24 @@
 
 ⭐ If you like this project, consider starring the repository!
 
-![Python](https://img.shields.io/badge/Python-3.11-blue)
-![Docker](https://img.shields.io/badge/Docker-Enabled-blue)
-![Prometheus](https://img.shields.io/badge/Observability-Prometheus-orange)
-![Grafana](https://img.shields.io/badge/Dashboard-Grafana-yellow)
+[![Python](https://img.shields.io/badge/Python-3.11-blue)](https://www.python.org/)
+[![Docker](https://img.shields.io/badge/Docker-Enabled-blue)](https://www.docker.com/)
+[![Prometheus](https://img.shields.io/badge/Observability-Prometheus-orange)](https://prometheus.io/)
+[![Grafana](https://img.shields.io/badge/Dashboard-Grafana-yellow)](https://grafana.com/)
+
+CartCopilot is a production-style AI shopping assistant that combines LangGraph orchestration, FAISS vector retrieval, Redis session state, and microservices architecture to simulate a real-world conversational commerce backend.
+
+## Quick Navigation
+
+- Architecture → docs/architecture/
+- Microservices → services/
+- Infrastructure → infra/
+- UI → ui/
+- Observability → Prometheus & Grafana dashboards
+
+
+---
+
 
 ## Key Features
 
@@ -25,7 +39,7 @@ real-world commerce assistants.
 
 The project intentionally separates AI orchestration from business logic using microservices and deterministic state machines.
 
-# Demo
+## Demo
 
 ## Streamlit Shopping Assistant
 
@@ -104,7 +118,7 @@ The project shows how **AI systems integrate with real backend infrastructure**.
 
 ---
 
-# 🏗 System Architecture
+# 🏗 System Flow
 
 CartCopilot follows a **layered architecture used by AI platform teams**, separating UI, orchestration, data storage, commerce logic, and observability.
 
