@@ -9,6 +9,8 @@
 
 CartCopilot is a production-style AI shopping assistant that combines LangGraph orchestration, FAISS vector retrieval, Redis session state, and microservices architecture to simulate a real-world conversational commerce backend.
 
+The system models how production AI assistants integrate LLM reasoning with deterministic backend services for reliability and scalability.
+
 ## Quick Navigation
 
 - Architecture → docs/architecture/
