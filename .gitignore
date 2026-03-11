@@ -1,0 +1,101 @@
+############################
+# PYTHON
+############################
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc.*
+*.py,cover
+.python-version
+
+############################
+# VIRTUAL ENVIRONMENTS
+############################
+.venv/
+venv/
+env/
+ENV/
+
+############################
+# ENVIRONMENT FILES
+############################
+.env
+.env.*
+!.env.example
+
+############################
+# DATASETS
+############################
+Dataset/
+data/
+*.csv
+*.zip
+*.parquet
+
+############################
+# FAISS / VECTOR INDEXES
+############################
+indexes/
+*.index
+*.faiss
+
+############################
+# MACHINE LEARNING ARTIFACTS
+############################
+*.pt
+*.bin
+*.model
+*.ckpt
+*.onnx
+*.pkl
+*.joblib
+*.npy
+*.npz
+
+############################
+# DATABASE FILES
+############################
+*.db
+*.sqlite
+*.sqlite3
+
+############################
+# LOG FILES
+############################
+*.log
+logs/
+
+############################
+# CACHES
+############################
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+############################
+# JUPYTER
+############################
+.ipynb_checkpoints/
+
+############################
+# IDE FILES
+############################
+.vscode/
+.idea/
+
+############################
+# OS FILES
+############################
+.DS_Store
+Thumbs.db
+
+############################
+# BUILD FILES
+############################
+dist/
+build/
+*.egg-info/

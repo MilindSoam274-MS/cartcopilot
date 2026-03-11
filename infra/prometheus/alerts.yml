@@ -1,0 +1,72 @@
+groups:
+  - name: cartcopilot-alerts
+    rules:
+      - alert: AssistantHighLatencyP95
+        expr: histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket{service="assistant-service"}[5m])) by (le)) > 0.5
+        for: 2m
+        labels:
+          severity: warning
+          service: assistant-service
+        annotations:
+          summary: "Assistant-service p95 latency is high"
+          description: "Assistant-service p95 latency has been above 0.5s for more than 2 minutes."
+
+      - alert: CheckoutHighLatencyP95
+        expr: histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket{service="checkout-service"}[5m])) by (le)) > 0.3
+        for: 2m
+        labels:
+          severity: warning
+          service: checkout-service
+        annotations:
+          summary: "Checkout-service p95 latency is high"
+          description: "Checkout-service p95 latency has been above 0.3s for more than 2 minutes."
+
+      - alert: AssistantFallbackSpike
+        expr: increase(assistant_fallback_total[10m]) > 5
+        for: 1m
+        labels:
+          severity: warning
+          service: assistant-service
+        annotations:
+          summary: "Assistant fallback responses are spiking"
+          description: "More than 5 fallback responses were recorded in the last 10 minutes."
+
+      - alert: AssistantLowConfidenceSpike
+        expr: increase(assistant_low_confidence_total[10m]) > 10
+        for: 1m
+        labels:
+          severity: warning
+          service: assistant-service
+        annotations:
+          summary: "Assistant low-confidence responses are increasing"
+          description: "More than 10 low-confidence responses were recorded in the last 10 minutes."
+
+      - alert: NoOrdersRecently
+        expr: increase(orders_placed_total[15m]) == 0
+        for: 5m
+        labels:
+          severity: warning
+          service: checkout-service
+        annotations:
+          summary: "No orders have been placed recently"
+          description: "No orders were placed in the last 15 minutes."
+
+      - alert: AssistantServiceDown
+        expr: up{job="assistant-service"} == 0
+        for: 1m
+        labels:
+          severity: critical
+          service: assistant-service
+        annotations:
+          summary: "Assistant-service is down"
+          description: "Prometheus cannot scrape assistant-service."
+
+      - alert: CheckoutServiceDown
+        expr: up{job="checkout-service"} == 0
+        for: 1m
+        labels:
+          severity: critical
+          service: checkout-service
+        annotations:
+          summary: "Checkout-service is down"
+          description: "Prometheus cannot scrape checkout-service."
